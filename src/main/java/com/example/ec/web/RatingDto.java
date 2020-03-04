@@ -1,5 +1,6 @@
 package com.example.ec.web;
 
+import com.example.ec.domin.TourRating;
 import lombok.Data;
 
 import javax.validation.constraints.Max;
@@ -25,5 +26,9 @@ public class RatingDto {
         this.score = score;
         this.comment = comment;
         this.customerId = customerId;
+    }
+
+    public RatingDto(TourRating tourRating) {
+        this(tourRating.getScore(), tourRating.getComment(), tourRating.getPk().getCustomerId());
     }
 }
