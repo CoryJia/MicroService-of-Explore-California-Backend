@@ -1,17 +1,15 @@
-package com.example.ec.domin;
-
-
-
-import lombok.Data;
+package com.example.ec.domain;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
+import java.io.Serializable;
 import java.util.Objects;
 
-@Data
+@Table(name="tour_package")
 @Entity
-public class TourPackage {
+public class TourPackage implements Serializable {
     @Id
     private String code;
 
@@ -26,7 +24,7 @@ public class TourPackage {
         this.name = name;
     }
 
-    /*public String getCode() {
+    public String getCode() {
         return code;
     }
 
@@ -54,5 +52,5 @@ public class TourPackage {
     @Override
     public int hashCode() {
         return Objects.hash(code, name);
-    }*/
+    }
 }
