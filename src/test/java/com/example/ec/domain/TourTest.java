@@ -8,6 +8,7 @@ import static org.junit.Assert.assertThat;
 
 public class TourTest {
     TourPackage tourPackage = new TourPackage("CC", "Name");
+
     Tour tour1 = new Tour("title", "description", "blurb", 50, "1 day", "bullet",
             "keywords", tourPackage, Difficulty.Difficult, Region.Central_Coast);
 
@@ -15,7 +16,7 @@ public class TourTest {
             "keywords", tourPackage, Difficulty.Difficult, Region.Central_Coast);
 
     @Test
-    public void testConstructorAndGetters(){
+    public void testConstructorAndGetters() {
         assertNull(tour1.getId());
         assertThat(tour1.getTitle(), is("title"));
         assertThat(tour1.getDescription(), is("description"));

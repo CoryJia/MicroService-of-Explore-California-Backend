@@ -1,9 +1,17 @@
 package com.example.ec.domain;
 
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
+@Data
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
+@AllArgsConstructor
 @Table(name="tour_rating")
 public class TourRating {
     @Id
@@ -22,9 +30,6 @@ public class TourRating {
 
     @Column
     private String comment;
-
-    protected TourRating() {
-    }
 
     /**
      * Create a fully initialized TourRating.
@@ -72,56 +77,4 @@ public class TourRating {
         }
     }
 
-    public Integer getScore() {
-        return score;
-    }
-
-    public String getComment() {
-        return comment;
-    }
-
-    public Tour getTour() {
-        return tour;
-    }
-
-    public void setTour(Tour tour) {
-        this.tour = tour;
-    }
-
-    public Integer getCustomerId() {
-        return customerId;
-    }
-
-    public void setCustomerId(Integer customerId) {
-        this.customerId = customerId;
-    }
-
-    public void setScore(Integer score) {
-        this.score = score;
-    }
-
-    public void setComment(String comment) {
-        this.comment = comment;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        TourRating that = (TourRating) o;
-        return Objects.equals(id, that.id) &&
-                Objects.equals(tour, that.tour) &&
-                Objects.equals(customerId, that.customerId) &&
-                Objects.equals(score, that.score) &&
-                Objects.equals(comment, that.comment);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, tour, customerId, score, comment);
-    }
-
-    public Integer getId() {
-        return id;
-    }
 }
